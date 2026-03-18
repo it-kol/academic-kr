@@ -611,6 +611,17 @@
 
     /* ===== BDOC DETAILS CSS ===== */
     .bdoc-main-details summary { font-family: 'Noto Sans KR', sans-serif; }
+
+    /* Image lightbox modal */
+    .img-modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; padding:20px; }
+    .img-modal-overlay.active { display:flex; }
+    .img-modal-box { position:relative; max-width:90vw; max-height:90vh; }
+    .img-modal-box img { max-width:90vw; max-height:85vh; border-radius:12px; object-fit:contain; display:block; }
+    .img-modal-close { position:absolute; top:-14px; right:-14px; width:32px; height:32px; border-radius:50%; background:#fff; border:none; font-size:18px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#333; box-shadow:0 2px 8px rgba(0,0,0,0.3); }
+    .brief-img-details img { cursor:zoom-in; transition:opacity 0.2s; }
+    .brief-img-details img:hover { opacity:0.85; }
+    .bdoc-details-body img { cursor:zoom-in; transition:opacity 0.2s; }
+    .bdoc-details-body img:hover { opacity:0.85; }
   </style>
 </head>
 <body>
@@ -931,15 +942,15 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/uCfTpfigsNYCIFPW.PNG" alt="원문 수식" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/MwxWctrRiqUYhpJc.PNG" alt="원문 수식" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)" />
                     </div>
                     <div style="text-align:center">
-                      <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ DeepL (수식 깨짐)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/kFkbkJpKuDqxmMGZ.png" alt="DeepL 수식 깨짐" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)" />
+                      <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (수식 깨짐)</div>
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/oZzLKllqmzAoHSAw.PNG" alt="기타 도구 수식 깨짐" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (수식 완벽 보존)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/xTAlGhExJlGAtsLC.PNG" alt="BabelDOC 수식 보존" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/JbPdNvMVsKwzmAnf.PNG" alt="BabelDOC 수식 보존" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)" />
                     </div>
                   </div>
                 </div>
@@ -949,11 +960,11 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/QwYbthziIafRBpmi.PNG" alt="원문 벡터 그래픽" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/gNiyyZegdTnjtjIw.PNG" alt="원문 벡터 그래픽" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)" />
                     </div>
                     <div style="text-align:center">
-                      <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ DeepL (라벨 오역)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/GbrNgNtCEsZBFdPo.png" alt="DeepL 벡터 오역" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)" />
+                      <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (라벨 오역)</div>
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/bhZJcHYUxvaNpyLi.PNG" alt="기타 도구 벡터 오역" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (정밀 번역)</div>
@@ -967,33 +978,29 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/WnUfcHzVhHNWFgxk.PNG" alt="원문 표" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/jytamGzdGrvdAnDF.PNG" alt="원문 표" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)" />
                     </div>
                     <div style="text-align:center">
-                      <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ DeepL (표 구조 붕괴)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/ovwusrlEeCblGMAL.png" alt="DeepL 표 붕괴" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)" />
+                      <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (수식 깨짐)</div>
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/UlEdfJPHrZssUQqJ.PNG" alt="기타 도구 표 수식 깨짐" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)" />
                     </div>
                     <div style="text-align:center">
-                      <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (표 완벽 보존)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/EhykZxVxPBjcKRME.PNG" alt="BabelDOC 표 보존" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)" />
+                      <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (수식 완벽 보존)</div>
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/dMJVDuLtkvXLphzW.PNG" alt="BabelDOC 표 수식 보존" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)" />
                     </div>
                   </div>
                 </div>
                 <!-- ④ 정렬 효과 -->
                 <div style="margin-bottom:24px">
                   <div style="font-size:13px;font-weight:700;color:#92400e;margin-bottom:10px">④ 정렬 효과 비교</div>
-                  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
                     <div style="text-align:center">
-                      <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/iNGnhoBKzbizMrmF.PNG" alt="원문 정렬" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)" />
+                      <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (수식 정렬 오류)</div>
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/UlEdfJPHrZssUQqJ.PNG" alt="기타 도구 정렬 오류" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)" />
                     </div>
                     <div style="text-align:center">
-                      <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ DeepL (정렬 깨짐)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/XvidGFIZcaSNuDpf.png" alt="DeepL 정렬 깨짐" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)" />
-                    </div>
-                    <div style="text-align:center">
-                      <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (정렬 완벽)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/MicRdpyuEXAExumG.PNG" alt="BabelDOC 정렬" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)" />
+                      <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (정렬 정확)</div>
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/dMJVDuLtkvXLphzW.PNG" alt="BabelDOC 정렬 정확" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)" />
                     </div>
                   </div>
                 </div>
@@ -1002,16 +1009,16 @@
                   <div style="font-size:13px;font-weight:700;color:#92400e;margin-bottom:10px">⑤ 페이지 넘김 효과 비교</div>
                   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
                     <div style="text-align:center">
-                      <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/iNGnhoBKzbizMrmF.PNG" alt="원문 페이지 넘김" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)" />
+                      <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문 (영어 논문)</div>
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/TZkGpNSbnlzXsehk.png" alt="원문 페이지 넘김" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)" />
                     </div>
                     <div style="text-align:center">
-                      <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ DeepL (문장 끊김)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/brSIeLNjAmZOpfbs.png" alt="DeepL 문장 끊김" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)" />
+                      <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (문장 끊김)</div>
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/zHtxHpdzTyhxbsCG.png" alt="기타 도구 문장 끊김" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (자연스러운 연결)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/aciWrJYhAlwdShIn.png" alt="BabelDOC 자연스러운 연결" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/XULDGmgUmdqPpdXA.png" alt="BabelDOC 자연스러운 연결" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)" />
                     </div>
                   </div>
                 </div>
@@ -1794,42 +1801,26 @@
 <section id="contact">
   <div class="inner">
     <div class="sec-head reveal">
-      <div class="sec-label">Contact Us</div>
+      <div class="sec-label">Contact</div>
       <h2 class="sec-title">문의하기</h2>
-      <p class="sec-desc">협업 문의, 제품 관련 질문, 스크립트 피드백 요청 모두 환영합니다. 24시간 내에 답변드립니다.</p>
+      <p class="sec-desc">주로 활동하는 플랫폼에 따라 담당자에게 직접 이메일로 연락해 주세요. 플랫폼과 구독자 수를 알려주시면 빠르게 답변드리겠습니다.</p>
     </div>
     <div class="contact-grid reveal">
       <div class="contact-card">
-        <div class="contact-platform" style="background:rgba(55,48,163,0.08)">📧</div>
+        <div class="contact-platform" style="background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)">📸</div>
         <div class="contact-info">
-          <div class="contact-name">이메일 (협업 문의)</div>
-          <div class="contact-id">kol@immersivetranslate.com</div>
+          <div class="contact-name">Song Enqing · Instagram / TikTok 담당</div>
+          <div class="contact-id">songenqing@funstory.ai</div>
         </div>
-        <button class="contact-copy" onclick="copyText('kol@immersivetranslate.com', this)">복사</button>
+        <button class="contact-copy" onclick="copyContact(this,'songenqing@funstory.ai')">이메일 복사</button>
       </div>
       <div class="contact-card">
-        <div class="contact-platform" style="background:rgba(88,101,242,0.08)">💬</div>
+        <div class="contact-platform" style="background:linear-gradient(135deg,#ff0000,#cc0000)">▶</div>
         <div class="contact-info">
-          <div class="contact-name">Discord</div>
-          <div class="contact-id">discord.gg/immersive-translate</div>
+          <div class="contact-name">Yara · YouTube / 블로그 담당</div>
+          <div class="contact-id">yara@babelnovel.com</div>
         </div>
-        <a href="https://discord.gg/immersive-translate" target="_blank" class="contact-copy">열기 ↗</a>
-      </div>
-      <div class="contact-card">
-        <div class="contact-platform" style="background:rgba(13,148,136,0.08)">🌐</div>
-        <div class="contact-info">
-          <div class="contact-name">공식 홈페이지</div>
-          <div class="contact-id">immersivetranslate.com/ko/</div>
-        </div>
-        <a href="https://immersivetranslate.com/ko/" target="_blank" class="contact-copy">열기 ↗</a>
-      </div>
-      <div class="contact-card">
-        <div class="contact-platform" style="background:rgba(217,119,6,0.08)">📄</div>
-        <div class="contact-info">
-          <div class="contact-name">BabelDOC 공식 페이지</div>
-          <div class="contact-id">babeldoc.com</div>
-        </div>
-        <a href="https://babeldoc.com" target="_blank" class="contact-copy">열기 ↗</a>
+        <button class="contact-copy" onclick="copyContact(this,'yara@babelnovel.com')">이메일 복사</button>
       </div>
     </div>
   </div>
@@ -1870,16 +1861,24 @@
 <div class="modal-overlay" id="collabModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeCollabModal()">×</button>
-    <div class="modal-title">협업 문의하기</div>
-    <div class="modal-sub">아래 채널로 연락주시면 24시간 내에 답변드립니다. 채널 정보(플랫폼, 구독자 수, 콘텐츠 방향)를 간단히 알려주시면 더 빠르게 진행됩니다.</div>
-    <div class="contact-grid" style="grid-template-columns:1fr">
+    <div class="modal-title">🤝 협업 문의하기</div>
+    <div class="modal-sub">주로 활동하는 플랫폼 담당자에게 직접 이메일로 연락해 주세요. 플랫폼과 구독자 수, 채널 링크를 알려주시면 빠르게 답변드리겠습니다.</div>
+    <div class="contact-grid">
       <div class="contact-card">
-        <div class="contact-platform" style="background:rgba(55,48,163,0.08)">📧</div>
+        <div class="contact-platform" style="background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)">📸</div>
         <div class="contact-info">
-          <div class="contact-name">이메일 (협업 문의)</div>
-          <div class="contact-id">kol@immersivetranslate.com</div>
+          <div class="contact-name">Song Enqing · Instagram / TikTok 담당</div>
+          <div class="contact-id">songenqing@funstory.ai</div>
         </div>
-        <button class="contact-copy" onclick="copyText('kol@immersivetranslate.com', this)">복사</button>
+        <button class="contact-copy" onclick="copyContact(this,'songenqing@funstory.ai')">이메일 복사</button>
+      </div>
+      <div class="contact-card">
+        <div class="contact-platform" style="background:linear-gradient(135deg,#ff0000,#cc0000)">▶</div>
+        <div class="contact-info">
+          <div class="contact-name">Yara · YouTube / 블로그 담당</div>
+          <div class="contact-id">yara@babelnovel.com</div>
+        </div>
+        <button class="contact-copy" onclick="copyContact(this,'yara@babelnovel.com')">이메일 복사</button>
       </div>
     </div>
   </div>
@@ -1947,6 +1946,29 @@
   // ===== CLOSE MODAL ON OVERLAY CLICK =====
   document.querySelectorAll('.modal-overlay').forEach(overlay => {
     overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
+  });
+
+  // Image lightbox
+  function openImgModal(src, alt) {
+    document.getElementById('imgModalSrc').src = src;
+    document.getElementById('imgModalSrc').alt = alt || '';
+    document.getElementById('imgModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeImgModal() {
+    document.getElementById('imgModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeImgModal();
+  });
+  // Make all images in brief-img-details and bdoc-details-body clickable
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.brief-img-details img, .bdoc-details-body img').forEach(function(img) {
+      img.addEventListener('click', function() {
+        openImgModal(this.src, this.alt);
+      });
+    });
   });
 </script>
 </body>
