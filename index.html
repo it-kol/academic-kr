@@ -618,6 +618,40 @@
     .img-modal-box { position:relative; max-width:90vw; max-height:90vh; }
     .img-modal-box img { max-width:90vw; max-height:85vh; border-radius:12px; object-fit:contain; display:block; }
     .img-modal-close { position:absolute; top:-14px; right:-14px; width:32px; height:32px; border-radius:50%; background:#fff; border:none; font-size:18px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#333; box-shadow:0 2px 8px rgba(0,0,0,0.3); }
+
+    /* ===== FEATURE DEMO IMAGE TOGGLE ===== */
+    .feat-img-toggle { margin-top: 8px; }
+    .feat-img-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--indigo);
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: rgba(55,48,163,0.06);
+      border: 1px solid rgba(55,48,163,0.15);
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: inherit;
+    }
+    .feat-img-btn:hover { background: rgba(55,48,163,0.12); }
+    .feat-img-btn.open { background: rgba(55,48,163,0.12); }
+    .feat-img-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      margin-top: 0;
+    }
+    .feat-img-body.open {
+      max-height: 600px;
+      margin-top: 8px;
+    }
+    .feat-img-body a { display: block; }
+    .feat-img-body img { cursor: zoom-in; border-radius: 8px; display: block; width: 100%; }
+    .feat-img-body img:hover { opacity: 0.85; }
+
     .brief-img-details img { cursor:zoom-in; transition:opacity 0.2s; }
     .brief-img-details img:hover { opacity:0.85; }
     .bdoc-details-body img { cursor:zoom-in; transition:opacity 0.2s; }
@@ -791,25 +825,25 @@
             <td><strong>BabelDOC · PDF 번역</strong></td>
             <td><span class="brief-tag brief-tag-must">★ 필수</span></td>
             <td>arXiv / PubMed 논문 PDF를 수식·표·다단 레이아웃 그대로 이중 언어로 번역. 다른 도구와 가장 차별화되는 핵심 기능.</td>
-            <td>BabelDOC 엔진 선택 시 수식 깨짐 없음. 무료 사용 가능.<br><details class="brief-img-details"><summary>📸 사용 예시 보기 ▸</summary><div class="brief-img-wrap"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/FFdbPFIswsNoZpTz.PNG" alt="BabelDOC 업로드 화면"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" /></div></details></td>
+            <td>BabelDOC 엔진 선택 시 수식 깨짐 없음. 무료 사용 가능.<br><div class="feat-img-toggle"><button class="feat-img-btn" onclick="toggleFeatImg(this)">📸 사용 예시 보기 ▸</button><div class="feat-img-body"><a href="#" onclick="openLightboxGrouped(this.querySelector('img'));return false;"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/FFdbPFIswsNoZpTz.PNG" alt="BabelDOC 업로드 화면"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="feature-demos" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" /></a></div></div></td>
           </tr>
           <tr class="brief-row-alt">
             <td><strong>웹페이지 이중 언어 번역</strong></td>
             <td><span class="brief-tag brief-tag-must">★ 필수</span></td>
             <td>arXiv / PubMed / IEEE Xplore 원문 + 번역문 동시 표시. 브라우저 기본 번역보다 학술 독해에 훨씬 적합.</td>
-            <td><details class="brief-img-details"><summary>📸 사용 예시 보기 ▸</summary><div class="brief-img-wrap"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/hrJaunnEBFQkWryr.JPEG" alt="PubMed 웹 이중 언어 번역"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" /></div></details></td>
+            <td><div class="feat-img-toggle"><button class="feat-img-btn" onclick="toggleFeatImg(this)">📸 사용 예시 보기 ▸</button><div class="feat-img-body"><a href="#" onclick="openLightboxGrouped(this.querySelector('img'));return false;"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/hrJaunnEBFQkWryr.JPEG" alt="PubMed 웹 이중 언어 번역"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="feature-demos" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" /></a></div></div></td>
           </tr>
           <tr>
             <td><strong>영상 자막 번역</strong></td>
             <td><span class="brief-tag brief-tag-must">★ 필수</span></td>
             <td>YouTube 학술 강의·컨퍼런스 영상 실시간 이중 언어 자막. 자막 내보내기 지원. YouTube 라이브 번역 지원(자막 있는 방송 한정).</td>
-            <td>자막 내보내기 → Notion에 붙여넣으면 학습 노트로 즉시 활용.<br><details class="brief-img-details"><summary>📸 사용 예시 보기 ▸</summary><div class="brief-img-wrap"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/NwsjLmZTsQjJDiGm.PNG" alt="영상 자막 번역"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" /></div></details></td>
+            <td>자막 내보내기 → Notion에 붙여넣으면 학습 노트로 즉시 활용.<br><div class="feat-img-toggle"><button class="feat-img-btn" onclick="toggleFeatImg(this)">📸 사용 예시 보기 ▸</button><div class="feat-img-body"><a href="#" onclick="openLightboxGrouped(this.querySelector('img'));return false;"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/NwsjLmZTsQjJDiGm.PNG" alt="영상 자막 번역"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="feature-demos" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" /></a></div></div></td>
           </tr>
           <tr class="brief-row-alt">
             <td><strong>AI Reply · 이메일 답장</strong></td>
             <td><span class="brief-tag brief-tag-adv">◎ 심화</span></td>
             <td>Gmail에서 지도교수 이메일 한 번에 요약하고 영문 답장 초안 생성. 어조 미세 조정 후 바로 발송.</td>
-            <td><details class="brief-img-details"><summary>📸 사용 예시 보기 ▸</summary><div class="brief-img-wrap"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/KSoUfSQjFDLhvrVd.PNG" alt="Gmail AI Reply 답장"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" /></div></details></td>
+            <td><div class="feat-img-toggle"><button class="feat-img-btn" onclick="toggleFeatImg(this)">📸 사용 예시 보기 ▸</button><div class="feat-img-body"><a href="#" onclick="openLightboxGrouped(this.querySelector('img'));return false;"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/KSoUfSQjFDLhvrVd.PNG" alt="Gmail AI Reply 답장"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="feature-demos" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" /></a></div></div></td>
           </tr>
           <tr>
             <td><strong>입력창 번역</strong></td>
@@ -865,15 +899,15 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문 (영어)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/GbrNgNtCEsZBFdPo.png" alt="원문 수식 (영어 논문)" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/GbrNgNtCEsZBFdPo.png" alt="원문 수식 (영어 논문)" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (수식 깨짐)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/oZzLKllqmzAoHSAw.PNG" alt="기타 도구 수식 깨짐" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/oZzLKllqmzAoHSAw.PNG" alt="기타 도구 수식 깨짐" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (수식 완벽 보존)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/ovwusrlEeCblGMAL.png" alt="BabelDOC 한국어 수식 보존" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/ovwusrlEeCblGMAL.png" alt="BabelDOC 한국어 수식 보존" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                   </div>
                 </div>
@@ -883,15 +917,15 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문 (영어)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/XvidGFIZcaSNuDpf.png" alt="원문 벡터 그래픽 (영어)" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/XvidGFIZcaSNuDpf.png" alt="원문 벡터 그래픽 (영어)" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (라벨 오역)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/bhZJcHYUxvaNpyLi.PNG" alt="기타 도구 벡터 오역" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/bhZJcHYUxvaNpyLi.PNG" alt="기타 도구 벡터 오역" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (한국어 정밀 번역)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/kFkbkJpKuDqxmMGZ.png" alt="BabelDOC 한국어 벡터 번역" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/kFkbkJpKuDqxmMGZ.png" alt="BabelDOC 한국어 벡터 번역" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                   </div>
                 </div>
@@ -901,15 +935,15 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문 (영어)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/GbrNgNtCEsZBFdPo.png" alt="원문 표 (영어 논문)" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/GbrNgNtCEsZBFdPo.png" alt="원문 표 (영어 논문)" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (수식 깨짐)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/UlEdfJPHrZssUQqJ.PNG" alt="기타 도구 표 수식 깨짐" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/UlEdfJPHrZssUQqJ.PNG" alt="기타 도구 표 수식 깨짐" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (한국어 완벽 보존)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/ovwusrlEeCblGMAL.png" alt="BabelDOC 한국어 표 보존" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/ovwusrlEeCblGMAL.png" alt="BabelDOC 한국어 표 보존" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                   </div>
                 </div>
@@ -919,11 +953,11 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (수식 정렬 오류)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/UlEdfJPHrZssUQqJ.PNG" alt="기타 도구 정렬 오류" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/UlEdfJPHrZssUQqJ.PNG" alt="기타 도구 정렬 오류" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (한국어 정렬 정확)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/ovwusrlEeCblGMAL.png" alt="BabelDOC 한국어 정렬 정확" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/ovwusrlEeCblGMAL.png" alt="BabelDOC 한국어 정렬 정확" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                   </div>
                 </div>
@@ -933,15 +967,15 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문 (영어 논문)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/TZkGpNSbnlzXsehk.png" alt="원문 페이지 넘김" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/TZkGpNSbnlzXsehk.png" alt="원문 페이지 넘김" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (문장 끊김)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/zHtxHpdzTyhxbsCG.png" alt="기타 도구 문장 끊김" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/zHtxHpdzTyhxbsCG.png" alt="기타 도구 문장 끊김" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (자연스러운 연결)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/XULDGmgUmdqPpdXA.png" alt="BabelDOC 자연스러운 연결" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/XULDGmgUmdqPpdXA.png" alt="BabelDOC 자연스러운 연결" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                   </div>
                 </div>
@@ -987,15 +1021,15 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/MwxWctrRiqUYhpJc.PNG" alt="원문 수식" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/MwxWctrRiqUYhpJc.PNG" alt="원문 수식" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (수식 깨짐)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/oZzLKllqmzAoHSAw.PNG" alt="기타 도구 수식 깨짐" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/oZzLKllqmzAoHSAw.PNG" alt="기타 도구 수식 깨짐" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (수식 완벽 보존)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/JbPdNvMVsKwzmAnf.PNG" alt="BabelDOC 수식 보존" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/JbPdNvMVsKwzmAnf.PNG" alt="BabelDOC 수식 보존" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                   </div>
                 </div>
@@ -1005,15 +1039,15 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/gNiyyZegdTnjtjIw.PNG" alt="원문 벡터 그래픽" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/gNiyyZegdTnjtjIw.PNG" alt="원문 벡터 그래픽" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (라벨 오역)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/bhZJcHYUxvaNpyLi.PNG" alt="기타 도구 벡터 오역" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/bhZJcHYUxvaNpyLi.PNG" alt="기타 도구 벡터 오역" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (정밀 번역)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/pipmNkikOZGuqYmM.PNG" alt="BabelDOC 벡터 번역" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/pipmNkikOZGuqYmM.PNG" alt="BabelDOC 벡터 번역" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                   </div>
                 </div>
@@ -1023,15 +1057,15 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/jytamGzdGrvdAnDF.PNG" alt="원문 표" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/jytamGzdGrvdAnDF.PNG" alt="원문 표" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (수식 깨짐)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/UlEdfJPHrZssUQqJ.PNG" alt="기타 도구 표 수식 깨짐" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/UlEdfJPHrZssUQqJ.PNG" alt="기타 도구 표 수식 깨짐" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (수식 완벽 보존)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/dMJVDuLtkvXLphzW.PNG" alt="BabelDOC 표 수식 보존" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/dMJVDuLtkvXLphzW.PNG" alt="BabelDOC 표 수식 보존" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                   </div>
                 </div>
@@ -1041,11 +1075,11 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (수식 정렬 오류)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/UlEdfJPHrZssUQqJ.PNG" alt="기타 도구 정렬 오류" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/UlEdfJPHrZssUQqJ.PNG" alt="기타 도구 정렬 오류" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (정렬 정확)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/dMJVDuLtkvXLphzW.PNG" alt="BabelDOC 정렬 정확" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/dMJVDuLtkvXLphzW.PNG" alt="BabelDOC 정렬 정확" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                   </div>
                 </div>
@@ -1055,15 +1089,15 @@
                   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#78350f;margin-bottom:6px;padding:4px 8px;background:rgba(254,243,199,0.6);border-radius:6px">📄 원문 (영어 논문)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/TZkGpNSbnlzXsehk.png" alt="원문 페이지 넘김" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/TZkGpNSbnlzXsehk.png" alt="원문 페이지 넘김" style="width:100%;border-radius:8px;border:1px solid rgba(217,119,6,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#991b1b;margin-bottom:6px;padding:4px 8px;background:rgba(254,226,226,0.6);border-radius:6px">❌ 기타 도구 (문장 끊김)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/zHtxHpdzTyhxbsCG.png" alt="기타 도구 문장 끊김" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/zHtxHpdzTyhxbsCG.png" alt="기타 도구 문장 끊김" style="width:100%;border-radius:8px;border:1px solid rgba(153,27,27,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                     <div style="text-align:center">
                       <div style="font-size:11px;font-weight:700;color:#166534;margin-bottom:6px;padding:4px 8px;background:rgba(220,252,231,0.6);border-radius:6px">✅ BabelDOC (자연스러운 연결)</div>
-                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/XULDGmgUmdqPpdXA.png" alt="BabelDOC 자연스러운 연결" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
+                      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/XULDGmgUmdqPpdXA.png" alt="BabelDOC 자연스러운 연결" style="width:100%;border-radius:8px;border:1px solid rgba(22,101,52,0.2)"  style="cursor:zoom-in;display:block;width:100%"  data-lightbox="true" data-group="bdoc-page" data-group="bdoc-align" data-group="bdoc-table" data-group="bdoc-vector" data-group="bdoc-formula" style="cursor:zoom-in;display:block;width:100%;border-radius:8px" />
                     </div>
                   </div>
                 </div>
@@ -1994,32 +2028,80 @@
   });
 
 
-  // ===== Lightbox =====
-  function showLightbox(src, alt) {
+  // ===== Feature Image Toggle =====
+  function toggleFeatImg(btn) {
+    btn.classList.toggle('open');
+    var body = btn.nextElementSibling;
+    body.classList.toggle('open');
+  }
+  // ===== /Feature Image Toggle =====
+
+  // ===== Grouped Lightbox with Prev/Next =====
+  var _lbGroup = [];
+  var _lbIdx = 0;
+
+  function openLightboxGrouped(img) {
+    var group = img.dataset.group;
+    if (group) {
+      _lbGroup = Array.from(document.querySelectorAll('img[data-lightbox="true"][data-group="' + group + '"]'));
+      _lbIdx = _lbGroup.indexOf(img);
+    } else {
+      _lbGroup = [img];
+      _lbIdx = 0;
+    }
+    _showLightboxAt(_lbIdx);
+  }
+
+  function _showLightboxAt(idx) {
     var overlay = document.getElementById('lightbox-overlay');
-    var img = document.getElementById('lightbox-img');
-    img.src = src;
-    img.alt = alt || '';
+    var lbImg = document.getElementById('lightbox-img');
+    var img = _lbGroup[idx];
+    lbImg.src = img.src;
+    lbImg.alt = img.alt || '';
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+    // Show/hide arrows
+    document.getElementById('lb-prev').style.display = (_lbGroup.length > 1 && idx > 0) ? 'flex' : 'none';
+    document.getElementById('lb-next').style.display = (_lbGroup.length > 1 && idx < _lbGroup.length - 1) ? 'flex' : 'none';
+    // Counter
+    var counter = document.getElementById('lb-counter');
+    if (_lbGroup.length > 1) {
+      counter.textContent = (idx + 1) + ' / ' + _lbGroup.length;
+      counter.style.display = 'block';
+    } else {
+      counter.style.display = 'none';
+    }
   }
+
+  function lbPrev() { if (_lbIdx > 0) { _lbIdx--; _showLightboxAt(_lbIdx); } }
+  function lbNext() { if (_lbIdx < _lbGroup.length - 1) { _lbIdx++; _showLightboxAt(_lbIdx); } }
+
   function closeLightbox() {
     document.getElementById('lightbox-overlay').style.display = 'none';
     document.body.style.overflow = '';
+    _lbGroup = []; _lbIdx = 0;
   }
+
   document.addEventListener('keydown', function(e) {
+    var overlay = document.getElementById('lightbox-overlay');
+    if (overlay.style.display === 'none') return;
     if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lbPrev();
+    if (e.key === 'ArrowRight') lbNext();
   });
-  // Event delegation — works for images inside <details> revealed after click
+
+  // Event delegation for all data-lightbox images (NOT inside feat-img-body which use openLightboxGrouped directly)
   document.addEventListener('click', function(e) {
     var img = e.target;
     if (img.tagName === 'IMG' && img.dataset.lightbox === 'true') {
+      // Check if it's inside a feat-img-body (handled by anchor onclick)
+      if (img.closest('.feat-img-body')) return;
       e.preventDefault();
       e.stopPropagation();
-      showLightbox(img.src, img.alt);
+      openLightboxGrouped(img);
     }
   });
-  // ===== /Lightbox =====
+  // ===== /Grouped Lightbox =====
 
 </script>
 
@@ -2036,24 +2118,39 @@
   padding:20px;
   box-sizing:border-box;
 ">
+  <!-- Close button -->
   <button onclick="closeLightbox()" style="
-    position:fixed;
-    top:16px;
-    right:20px;
-    background:rgba(255,255,255,0.15);
-    border:none;
-    color:#fff;
-    font-size:28px;
-    line-height:1;
-    width:44px;
-    height:44px;
-    border-radius:50%;
-    cursor:pointer;
-    z-index:10000;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    position:fixed;top:16px;right:20px;
+    background:rgba(255,255,255,0.15);border:none;color:#fff;
+    font-size:28px;line-height:1;width:44px;height:44px;
+    border-radius:50%;cursor:pointer;z-index:10000;
+    display:flex;align-items:center;justify-content:center;
   ">×</button>
+  <!-- Prev arrow -->
+  <button id="lb-prev" onclick="event.stopPropagation();lbPrev()" style="
+    display:none;position:fixed;left:16px;top:50%;transform:translateY(-50%);
+    background:rgba(255,255,255,0.18);border:none;color:#fff;
+    font-size:32px;line-height:1;width:52px;height:52px;
+    border-radius:50%;cursor:pointer;z-index:10000;
+    align-items:center;justify-content:center;
+    transition:background 0.2s;
+  " onmouseover="this.style.background='rgba(255,255,255,0.32)'" onmouseout="this.style.background='rgba(255,255,255,0.18)'">‹</button>
+  <!-- Next arrow -->
+  <button id="lb-next" onclick="event.stopPropagation();lbNext()" style="
+    display:none;position:fixed;right:16px;top:50%;transform:translateY(-50%);
+    background:rgba(255,255,255,0.18);border:none;color:#fff;
+    font-size:32px;line-height:1;width:52px;height:52px;
+    border-radius:50%;cursor:pointer;z-index:10000;
+    align-items:center;justify-content:center;
+    transition:background 0.2s;
+  " onmouseover="this.style.background='rgba(255,255,255,0.32)'" onmouseout="this.style.background='rgba(255,255,255,0.18)'">›</button>
+  <!-- Counter -->
+  <div id="lb-counter" style="
+    display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+    color:rgba(255,255,255,0.7);font-size:14px;font-weight:500;
+    background:rgba(0,0,0,0.4);padding:4px 12px;border-radius:20px;
+    z-index:10000;pointer-events:none;
+  "></div>
   <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()" style="
     max-width:90vw;
     max-height:90vh;
