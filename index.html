@@ -174,6 +174,14 @@
     .brief-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
     .brief-table tr:last-child td { border-bottom: none; }
     .brief-row-alt { background: rgba(247,245,240,0.5); }
+    .brief-img-row td { padding: 0 14px 10px; border-bottom: 1px solid var(--border); }
+    .brief-img-details { cursor: pointer; }
+    .brief-img-details summary { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--indigo); padding: 5px 10px; border-radius: 6px; background: rgba(55,48,163,0.06); border: 1px solid rgba(55,48,163,0.15); list-style: none; user-select: none; transition: background 0.2s; }
+    .brief-img-details summary::-webkit-details-marker { display: none; }
+    .brief-img-details summary:hover { background: rgba(55,48,163,0.12); }
+    .brief-img-details[open] summary { background: rgba(55,48,163,0.12); }
+    .brief-img-wrap { margin-top: 10px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); max-width: 680px; }
+    .brief-img-wrap img { width: 100%; display: block; }
     .brief-tag { display: inline-block; padding: 3px 9px; border-radius: 6px; font-size: 11px; font-weight: 700; white-space: nowrap; }
     .brief-tag-must { background: rgba(55,48,163,0.1); color: var(--indigo); border: 1px solid rgba(55,48,163,0.2); }
     .brief-tag-adv { background: rgba(13,148,136,0.08); color: var(--teal); border: 1px solid rgba(13,148,136,0.2); }
@@ -774,11 +782,27 @@
             <td>arXiv / PubMed 논문 PDF를 수식·표·다단 레이아웃 그대로 이중 언어로 번역. 다른 도구와 가장 차별화되는 핵심 기능.</td>
             <td>BabelDOC 엔진 선택 시 수식 깨짐 없음. 무료 사용 가능.</td>
           </tr>
+          <tr class="brief-img-row">
+            <td colspan="4">
+              <details class="brief-img-details">
+                <summary>📸 사용 예시 보기 ▸</summary>
+                <div class="brief-img-wrap"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/FFdbPFIswsNoZpTz.PNG" alt="BabelDOC 업로드 화면" /></div>
+              </details>
+            </td>
+          </tr>
           <tr class="brief-row-alt">
             <td><strong>웹페이지 이중 언어 번역</strong></td>
             <td><span class="brief-tag brief-tag-must">★ 필수</span></td>
             <td>arXiv / PubMed / IEEE Xplore 원문 + 번역문 동시 표시. 브라우저 기본 번역보다 학술 독해에 훨씬 적합.</td>
             <td>—</td>
+          </tr>
+          <tr class="brief-img-row brief-row-alt">
+            <td colspan="4">
+              <details class="brief-img-details">
+                <summary>📸 사용 예시 보기 ▸</summary>
+                <div class="brief-img-wrap"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/hrJaunnEBFQkWryr.JPEG" alt="PubMed 웹 이중 언어 번역" /></div>
+              </details>
+            </td>
           </tr>
           <tr>
             <td><strong>영상 자막 번역</strong></td>
@@ -786,11 +810,27 @@
             <td>YouTube 학술 강의·컨퍼런스 영상 실시간 이중 언어 자막. 자막 내보내기 지원. YouTube 라이브 번역 지원(자막 있는 방송 한정).</td>
             <td>자막 내보내기 → Notion에 붙여넣으면 학습 노트로 즉시 활용.</td>
           </tr>
+          <tr class="brief-img-row">
+            <td colspan="4">
+              <details class="brief-img-details">
+                <summary>📸 사용 예시 보기 ▸</summary>
+                <div class="brief-img-wrap"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/NwsjLmZTsQjJDiGm.PNG" alt="영상 자막 번역" /></div>
+              </details>
+            </td>
+          </tr>
           <tr class="brief-row-alt">
             <td><strong>AI Reply · 이메일 답장</strong></td>
             <td><span class="brief-tag brief-tag-adv">◎ 심화</span></td>
             <td>Gmail에서 지도교수 이메일 한 번에 요약하고 영문 답장 초안 생성. 어조 미세 조정 후 바로 발송.</td>
             <td>—</td>
+          </tr>
+          <tr class="brief-img-row brief-row-alt">
+            <td colspan="4">
+              <details class="brief-img-details">
+                <summary>📸 사용 예시 보기 ▸</summary>
+                <div class="brief-img-wrap"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663402005199/KSoUfSQjFDLhvrVd.PNG" alt="Gmail AI Reply 답장" /></div>
+              </details>
+            </td>
           </tr>
           <tr>
             <td><strong>입력창 번역</strong></td>
